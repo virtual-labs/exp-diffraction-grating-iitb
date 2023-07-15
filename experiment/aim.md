@@ -1,1 +1,3 @@
-### Aim of the experiment
+## Aim
+
+### To determine the Wavelength (λ) of He-Ne laser light.
