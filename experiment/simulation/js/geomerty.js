@@ -686,6 +686,50 @@ var Chemistry;
         }
     }
     Chemistry.Rectangle = Rectangle;
+    class DoubleArrowLine extends Geometry {
+        constructor(x1, y1, x2, y2, arrowSize, canvas) {
+            super();
+            this.x1 = x1;
+            this.x2 = x2;
+            this.y1 = y1;
+            this.y2 = y2;
+            this.canvas = canvas;
+            this.context = this.canvas.getContext("2d");
+            this.arrowsize = arrowSize;
+        }
+        draw() {
+            context.beginPath();
+            context.moveTo(this.x1 * lscale, this.y1 * lscale);
+            context.lineTo(this.x2 * lscale, this.y2 * lscale);
+            context.stroke();
+            // Calculate angle and coordinates for the arrowheads
+            let angle = Math.atan2(this.y2 * lscale - this.y1 * lscale, this.x2 * lscale - this.x1 * lscale);
+            let x3 = this.x2 * lscale - this.arrowsize * lscale * Math.cos(angle - Math.PI / 6);
+            let y3 = this.y2 * lscale - this.arrowsize * lscale * Math.sin(angle - Math.PI / 6);
+            let x4 = this.x2 * lscale - this.arrowsize * lscale * Math.cos(angle + Math.PI / 6);
+            let y4 = this.y2 * lscale - this.arrowsize * lscale * Math.sin(angle + Math.PI / 6);
+            // Draw arrowheads
+            context.beginPath();
+            context.moveTo(this.x2 * lscale, this.y2 * lscale);
+            context.lineTo(x3, y3);
+            context.moveTo(this.x2 * lscale, this.y2 * lscale);
+            context.lineTo(x4, y4);
+            context.stroke();
+            // Calculate coordinates for the arrowheads at the start of the line
+            let x5 = this.x1 * lscale + this.arrowsize * lscale * Math.cos(angle - Math.PI / 6);
+            let y5 = this.y1 * lscale + this.arrowsize * lscale * Math.sin(angle - Math.PI / 6);
+            let x6 = this.x1 * lscale + this.arrowsize * lscale * Math.cos(angle + Math.PI / 6);
+            let y6 = this.y1 * lscale + this.arrowsize * lscale * Math.sin(angle + Math.PI / 6);
+            // Draw arrowheads at the start of the line
+            context.beginPath();
+            context.moveTo(this.x1 * lscale, this.y1 * lscale);
+            context.lineTo(x5, y5);
+            context.moveTo(this.x1 * lscale, this.y1 * lscale);
+            context.lineTo(x6, y6);
+            context.stroke();
+        }
+    }
+    Chemistry.DoubleArrowLine = DoubleArrowLine;
     class Arrow extends Geometry {
         constructor(stpt, pointing_direction, canvas) {
             super();
