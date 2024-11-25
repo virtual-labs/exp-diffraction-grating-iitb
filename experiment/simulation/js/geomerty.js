@@ -774,5 +774,33 @@ var Chemistry;
         }
     }
     Chemistry.Arrow = Arrow;
+    class Line extends Geometry {
+        constructor(stpt1, stpt2, linewidth, color, canvas) {
+            super();
+            this.x1 = 0;
+            this.y1 = 0;
+            this.x2 = 0;
+            this.y2 = 0;
+            this.lineweight = 1;
+            this.x1 = stpt1.x;
+            this.y1 = stpt1.y;
+            this.x2 = stpt2.x;
+            this.y2 = stpt2.y;
+            this.lineweight = linewidth;
+            this.color = color;
+            this.canvas = canvas;
+            this.context = this.canvas.getContext('2d');
+        }
+        draw() {
+            this.context.beginPath();
+            this.context.moveTo(this.x1 * lscale, this.y1 * lscale);
+            this.context.lineTo(this.x2 * lscale, this.y2 * lscale);
+            this.context.lineWidth = this.lineweight;
+            this.context.strokeStyle = this.color;
+            this.context.stroke();
+            this.context.restore();
+        }
+    }
+    Chemistry.Line = Line;
 })(Chemistry || (Chemistry = {}));
 //# sourceMappingURL=geomerty.js.map

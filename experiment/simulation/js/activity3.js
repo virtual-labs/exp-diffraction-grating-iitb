@@ -14,28 +14,37 @@ let y_line;
 let x_line;
 let text_x;
 let text_y;
+//laser rays
+let source_ray;
+let center_ray;
+let first_up_ray;
+let first_down_ray;
+let second_up_ray;
+let second_down_ray;
+let third_up_ray;
+let third_down_ray;
 function activity3() {
     pp.clearleftpannel();
     pp.clearrightpannel();
     pp.addoffcanvas(3);
-    pp.showtitle('Determination of ultrasonic waves velocity in liquid media', 3);
+    pp.showtitle(`<p id="exp-title">Diffraction grating: to determine the wavelength of laser</p>`, 3);
     let left_panel_text = `
     <div style="position:absolute;" id="act3-left-content">
 
-    <div style="position:absolute; top:0.5vw; left:2vw; width: 25vw; font-size: 1.2vw;" >
+    <div style="position:absolute; top:3vw; left:2vw; width: 25vw; font-size: 1.2vw;" >
         <label style='font-size: 1.2vw;' for="">Number of Rulings on Grating Surface</label>
-        <Select style='font-size: 1.2vw; height: 4vw;' onchange='set_N();' id='N-dd' class="form-select">
+        <Select style='font-size: 1.2vw; height: 3vw;' onchange='set_N();' id='N-dd' class="form-select">
             
         </Select>
     </div>
 
-    <div style="position:absolute; top:0.5vw; left:35vw; width:17vw; font-size: 1.2vw;">
+    <div style="position:absolute; top:3vw; left:35vw; width:17vw; font-size: 1.2vw;">
         <label style='font-size: 1.2vw;' for="">Select nth Order</label>
         <Select style='font-size: 1.2vw;' onchange='set_order();' disabled id='order-dd' class="form-select">
         </Select>
     </div>
 
-    <div style="position:absolute; top:0.5vw; left: 60vw; width:25vw;" >
+    <div style="position:absolute; top:3vw; left: 60vw; width:25vw;" >
         <label style='font-size: 1.2vw;' for="">Move slider to select the adj. distance</label>
         <input style='font-size: 1.2vw;' disabled onchange='set_adj();' oninput='set_adj();' type="range" min="5" max="10" value="5" id="adj-inp">
     </div>
@@ -58,7 +67,7 @@ function activity3() {
    </div>
 
 
-   <input disabled type='button' class='btn btn-primary' value="Set" style="position: absolute;top: 40vw; left:43vw; margin-left: 3%; width: 10vw; font-size: 1.2vw;" id='act3_button' onclick='activity4();'>
+   <input disabled type='button' class='btn btn-primary' value="Next" style="position: absolute;top: 40vw; left:43vw; margin-left: 3%; width: 10vw; font-size: 1.2vw;" id='act3_button' onclick='activity4();'>
 
     `;
     pp.addtoleftpannel(left_panel_text);
@@ -82,6 +91,14 @@ function activity3() {
     x_line = new Chemistry.DoubleArrowLine(1080, 270, 1415, 270, 10, canvas);
     text_y = new Chemistry.Geo_Text('Y = 0', new Chemistry.Point(1620, 393), canvas);
     text_x = new Chemistry.Geo_Text('X = 5', new Chemistry.Point(1100, 290), canvas);
+    source_ray = new Chemistry.Line(new Chemistry.Point(158, 395), new Chemistry.Point(1080, 395), 2, 'red', canvas);
+    center_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 1.5, 'red', canvas);
+    first_up_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 1, 'red', canvas);
+    first_down_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 1, 'red', canvas);
+    second_up_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 0.7, 'red', canvas);
+    second_down_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 0.7, 'red', canvas);
+    third_up_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 0.5, 'red', canvas);
+    third_down_ray = new Chemistry.Line(new Chemistry.Point(1080, 395), new Chemistry.Point(1500, 395), 0.5, 'red', canvas);
     scene.add(center_dot);
     scene.add(first_upper_dot);
     scene.add(first_lower_dot);
@@ -91,6 +108,14 @@ function activity3() {
     scene.add(third_lower_dot);
     scene.add(y_line);
     scene.add(x_line);
+    scene.add(source_ray);
+    scene.add(first_up_ray);
+    scene.add(first_down_ray);
+    scene.add(second_up_ray);
+    scene.add(second_down_ray);
+    scene.add(third_up_ray);
+    scene.add(third_down_ray);
+    scene.add(center_ray);
     scene.add(text_y);
     scene.add(text_x);
     window.onload = a2_windowresize;
@@ -229,7 +254,7 @@ function set_lambda() {
     calculate_opp(selected_index);
     // add_opp_variation();
     reading.value = opp.toFixed(1);
-    original_lambda.value = slider_ele.value + "nm";
+    original_lambda.value = slider_ele.value + 'nm';
     btn.disabled = false;
     let distance_array = [];
     let arr0 = point_distance(selected_adj);
@@ -241,7 +266,11 @@ function set_lambda() {
         arr1 = [arr0[0][selected_index], arr0[1][selected_index]];
     }
     else if (selected_n == 3) {
-        arr1 = [arr0[0][selected_index], arr0[1][selected_index], arr0[2][selected_index]];
+        arr1 = [
+            arr0[0][selected_index],
+            arr0[1][selected_index],
+            arr0[2][selected_index],
+        ];
     }
     draw_dots(selected_n, arr1);
 }
@@ -252,6 +281,14 @@ function set_adj() {
     if (adj_ele.value) {
         tri.stpt.x = 1077.5 - (parseInt(adj_ele.value) - 5) * 67.2;
         left_bar.stpt.x = 1075.5 - (parseInt(adj_ele.value) - 5) * 67.2;
+        source_ray.x2 = left_bar.stpt.x;
+        first_up_ray.x1 = left_bar.stpt.x;
+        first_down_ray.x1 = left_bar.stpt.x;
+        second_up_ray.x1 = left_bar.stpt.x;
+        second_down_ray.x1 = left_bar.stpt.x;
+        third_up_ray.x1 = left_bar.stpt.x;
+        third_down_ray.x1 = left_bar.stpt.x;
+        center_ray.x1 = left_bar.stpt.x;
         x_line.x1 = 1075 - (parseInt(adj_ele.value) - 5) * 67.2;
         text_x.text = `X = ${parseInt(adj_ele.value)}`;
         scene.draw();
@@ -264,6 +301,8 @@ function set_adj() {
                 selected_index = i;
             }
         }
+        calculate_table(selected_n);
+        calculate_opp(selected_index);
         // calculate_opp(selected_index);
         reading.value = opp.toFixed(1);
     }
@@ -283,7 +322,11 @@ function set_adj() {
         arr1 = [arr0[0][selected_index], arr0[1][selected_index]];
     }
     else if (selected_n == 3) {
-        arr1 = [arr0[0][selected_index], arr0[1][selected_index], arr0[2][selected_index]];
+        arr1 = [
+            arr0[0][selected_index],
+            arr0[1][selected_index],
+            arr0[2][selected_index],
+        ];
     }
     draw_dots(selected_n, arr1);
 }
@@ -296,39 +339,63 @@ function draw_dots(order, d_array) {
     second_lower_dot.stpt.y = 393;
     third_upper_dot.stpt.y = 1500;
     third_lower_dot.stpt.y = 393;
+    first_up_ray.y2 = first_upper_dot.stpt.y;
+    first_down_ray.y2 = first_lower_dot.stpt.y;
+    second_up_ray.y2 = second_upper_dot.stpt.y;
+    second_down_ray.y2 = second_lower_dot.stpt.y;
+    third_up_ray.y2 = third_upper_dot.stpt.y;
+    third_down_ray.y2 = third_lower_dot.stpt.y;
     if (order == 1) {
         center_dot.stpt.x = 1500;
         center_dot.stpt.y = 393;
-        first_lower_dot.stpt.y = 393 - (d_array[0][7] * 5);
-        first_upper_dot.stpt.y = 393 + (d_array[0][7] * 5);
+        first_lower_dot.stpt.y = 393 - d_array[0][7] * 5;
+        first_upper_dot.stpt.y = 393 + d_array[0][7] * 5;
+        first_down_ray.y2 = first_lower_dot.stpt.y;
+        first_up_ray.y2 = first_upper_dot.stpt.y;
+        second_up_ray.y2 = 393;
+        second_down_ray.y2 = 393;
+        third_up_ray.y2 = 393;
+        third_down_ray.y2 = 393;
         y_line.y2 = 393 + d_array[0][7] * 5;
-        text_y.text = `Y = ${(d_array[0][7]).toFixed(2)}`;
+        text_y.text = `Y = ${d_array[0][7].toFixed(2)}`;
         scene.draw();
     }
     if (order == 2) {
         center_dot.stpt.x = 1500;
         center_dot.stpt.y = 393;
-        first_lower_dot.stpt.y = 393 - (d_array[0][7] * 2);
-        first_upper_dot.stpt.y = 393 + (d_array[0][7] * 2);
-        second_lower_dot.stpt.y = 393 - (d_array[1][7] * 2);
-        second_upper_dot.stpt.y = 393 + (d_array[1][7] * 2);
+        first_lower_dot.stpt.y = 393 - d_array[0][7] * 2;
+        first_upper_dot.stpt.y = 393 + d_array[0][7] * 2;
+        second_lower_dot.stpt.y = 393 - d_array[1][7] * 2;
+        second_upper_dot.stpt.y = 393 + d_array[1][7] * 2;
+        first_down_ray.y2 = first_lower_dot.stpt.y;
+        first_up_ray.y2 = first_upper_dot.stpt.y;
+        second_down_ray.y2 = second_lower_dot.stpt.y;
+        second_up_ray.y2 = second_upper_dot.stpt.y;
+        third_up_ray.y2 = 393;
+        third_down_ray.y2 = 393;
         y_line.y2 = 393 + d_array[1][7] * 2;
-        text_y.text = `Y = ${(d_array[1][7]).toFixed(2)}`;
+        text_y.text = `Y = ${d_array[1][7].toFixed(2)}`;
         scene.draw();
     }
     if (order == 3) {
         center_dot.stpt.x = 1500;
         center_dot.stpt.y = 393;
-        first_lower_dot.stpt.y = 393 - (d_array[0][7]);
-        first_upper_dot.stpt.y = 393 + (d_array[0][7]);
-        second_lower_dot.stpt.y = 393 - (d_array[1][7]);
-        second_upper_dot.stpt.y = 393 + (d_array[1][7]);
-        third_lower_dot.stpt.y = 393 - (d_array[2][7]);
-        third_upper_dot.stpt.y = 393 + (d_array[2][7]);
+        first_lower_dot.stpt.y = 393 - d_array[0][7];
+        first_upper_dot.stpt.y = 393 + d_array[0][7];
+        second_lower_dot.stpt.y = 393 - d_array[1][7];
+        second_upper_dot.stpt.y = 393 + d_array[1][7];
+        third_lower_dot.stpt.y = 393 - d_array[2][7];
+        third_upper_dot.stpt.y = 393 + d_array[2][7];
+        first_down_ray.y2 = first_lower_dot.stpt.y;
+        first_up_ray.y2 = first_upper_dot.stpt.y;
+        second_down_ray.y2 = second_lower_dot.stpt.y;
+        second_up_ray.y2 = second_upper_dot.stpt.y;
+        third_down_ray.y2 = third_lower_dot.stpt.y;
+        third_up_ray.y2 = third_upper_dot.stpt.y;
         y_line.y2 = 393 + d_array[2][7];
-        text_y.text = `Y = ${(d_array[2][7]).toFixed(2)}`;
+        text_y.text = `Y = ${d_array[2][7].toFixed(2)}`;
         scene.draw();
     }
 }
-activity3();
+//ctivity3();
 //# sourceMappingURL=activity3.js.map
