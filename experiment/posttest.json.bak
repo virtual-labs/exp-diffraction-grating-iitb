@@ -1,0 +1,48 @@
+[
+    {
+    
+        "question": "Which of the following is the purpose of using a diffraction grating in the experiment?",
+        "qid": 1,
+        "option_a": "To diffract the laser beam into multiple paths",
+        "option_b": "To absorb the laser light and reduce its intensity",
+        "option_c": "To reflect the laser light back towards the source",
+        "option_d": "To create interference patterns with the laser light",
+        "correct_option": "a"
+    },
+    {
+        "question": "Which of the following color deviate the most in case of grating?",
+        "qid": 2,
+        "option_a": "Blue",
+        "option_b": "Red",
+        "option_c": "Yellow",
+        "option_d": "Green",
+        "correct_option": "b"
+    },
+    {
+        "question": "How is grating element related to the number of ruling per cm?",
+        "qid": 3,
+        "option_a": "Grating element is the reciprocal of number of rulings per cm.",
+        "option_b": "Grating element is eaual to the number of rulings per cm.",
+        "option_c": "Grating element has no relation with the number of rulings per cm.",
+        "option_d": "Grating element is square of number of rulings per cm.",
+        "correct_option": "a"
+    },
+    {
+        "question": "In a diffraction grating experiment, if the distance between the grating and the screen remains the same while the laser is replaced with another laser of different wavelength, what will happen to the interference pattern?",
+        "qid": 4,
+        "option_a": "The interference pattern will change regarding the positions of the maxima.",
+        "option_b": "The interference pattern will become less intense.",
+        "option_c": "The interference pattern will become more intense.",
+        "option_d": "The interference pattern will disappear.",
+        "correct_option": "a"
+    },
+    {
+        "question": "What is the condition for constructive interference as a consequence of diffraction?",
+        "qid": 5,
+        "option_a": "Grating should be clean and straight",
+        "option_b": "The experiment must be conducted in the absence of any other light source",
+        "option_c": "Grating must have at least two slits",
+        "option_d": "Light Source must be a Laser",
+        "correct_option": "a"
+    }
+]

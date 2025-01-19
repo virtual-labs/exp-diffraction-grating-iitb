@@ -32,3 +32,4 @@ Diffraction gratings causes the spectral dispersion dispersing light into its co
 ![Diffraction pattern](./images/fig_2.png)
 
 <p>Fig.2. Diffraction Pattern
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
