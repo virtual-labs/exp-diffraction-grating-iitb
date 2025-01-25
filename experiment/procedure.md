@@ -12,49 +12,49 @@
 
 <h3> Observation Table </h3>
 
-<table>
+<table style="border: 1px solid #000">
 <thead>
-<tr>
-<th>Sr. No.</th>
-<th>Order of spectrum(n)</th>
-<th>Dist. between Grating & screen in cm(D)</th>
-<th>Left (y1) cm</th>
-<th>Right (y2) cm</th>
-<th>Mean Y = (y1+y2)/2</th>
-<th>θ = tan&#8315;&#185; (Y/D)</th>
-<th>sin θ</th>
-<th>λ = {(a+b) sinθ}/n</th>
+<tr style="border: 1px solid #000">
+<th style="border: 1px solid #000">Sr. No.</th>
+<th style="border: 1px solid #000">Order of spectrum(n)</th>
+<th style="border: 1px solid #000">Dist. between Grating & screen in cm(D)</th>
+<th style="border: 1px solid #000">Left (y1) cm</th>
+<th style="border: 1px solid #000">Right (y2) cm</th>
+<th style="border: 1px solid #000">Mean Y = (y1+y2)/2</th>
+<th style="border: 1px solid #000">θ = tan&#8315;&#185; (Y/D)</th>
+<th style="border: 1px solid #000">sin θ</th>
+<th style="border: 1px solid #000">λ = {(a+b) sinθ}/n</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td style="border: 1px solid #000">1.</td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
 </tr>
 <tr>
-<td>2.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td style="border: 1px solid #000">2.</td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
+<td style="border: 1px solid #000"></td>
 </tr>
 </tbody>
 </table>
 
 <h3>Formula</h3>
 
-![formula](./images/formula.png)
+<img src="./images/formula.png">
 
 <h3> Result </h3>
 1. Wavelength (λ) of a given light is   _____Å <br>

@@ -10,9 +10,9 @@
 
 <p>The grating equation relates the angle of diffraction, the grating spacing, the wavelength of light, and the order of diffraction. This fundamental equation describes the behavior of a diffraction grating is known as the grating equation:</p>
 
-![Formula1](./images/formula1.png)
+<img src="./images/formula1.png">
 
-where,
+<br> where, <br>
 &emsp;&emsp; n is the order of the diffraction (integer, typically starting from 0 for the central maximum), <br>
 
 &emsp;&emsp; λ is the wavelength of light, <br>
@@ -23,13 +23,13 @@ where,
 
 Diffraction gratings causes the spectral dispersion dispersing light into its constituent colors or wavelengths. This dispersion occurs because different wavelengths of light are diffracted at different angles according to the grating equation. This property is used in spectroscopy to analyze the spectral composition of light. Diffraction gratings are widely used in spectrometers and monochromators because they can provide high spectral resolution. Resolution is the ability to distinguish closely spaced wavelengths. It depends on factors such as the number of rulings in the grating and the order of diffraction. <br>
 
-<h3> Diagram </h3>
+<h3> Diagram </h3> <br>
 
-![He-Ne Laser](./images/fig_1.png)
+<img src="./images/fig_1.png"> <br>
 
-<p> Fig.1. He-Ne Laser </p>
+<p> Fig.1. He-Ne Laser </p> <br>
 
-![Diffraction pattern](./images/fig_2.png)
+<img src="./images/fig_2.png"> <br>
 
 <p>Fig.2. Diffraction Pattern</p>
 <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
