@@ -6,4 +6,4 @@
 ### Developers
 | SNo. | Name | Email | Institute | ID |
 | :---: | :---: | :---: | :---: | :---: |
-| 1 | Prof. B.G Toksha | email |  | id |
+| 1 | Prof B.G Toksha | email |  | id |
