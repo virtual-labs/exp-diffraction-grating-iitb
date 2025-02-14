@@ -114,15 +114,15 @@ function a1_draw_all_components() {
     scene.add(sq);
     var diff_cir = new Chemistry.Circle(new Chemistry.Point(350, 515), 12, canvas);
     diff_cir.name = 'central spot';
-    diff_cir.color = '#7397D3';
+    diff_cir.color = 'red';
     scene.add(diff_cir);
     var diff_cir = new Chemistry.Circle(new Chemistry.Point(350, 450), 12, canvas);
     diff_cir.name = 'first order diffraction';
-    diff_cir.color = '#7397D3';
+    diff_cir.color = 'red';
     scene.add(diff_cir);
     var diff_cir = new Chemistry.Circle(new Chemistry.Point(350, 410), 12, canvas);
     diff_cir.name = 'second order diffraction';
-    diff_cir.color = '#7397D3';
+    diff_cir.color = 'red';
     scene.add(diff_cir);
 }
 //list of all activity 1 questions
@@ -147,7 +147,7 @@ function a1_load_questions() { }
     });
     question.push({
         srno: 3,
-        question: "Select <span style='color: #018fc3'> Central Spot </span>",
+        question: "Select <span style='color: #018fc3'> Central Spot </span> <span style='font-size:14px;'>(Click on the red circle only)</span>",
         ans: 'central spot',
         hint: ['Rectangular', 'Mounted Vertically', 'Has valves attached'],
     });
