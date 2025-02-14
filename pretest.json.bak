@@ -1,0 +1,48 @@
+[
+    {
+        "question": "If a is the width of the slits and b the distance between the slits, then a + b is called as _________",
+        "qid": 1,
+        "option_a": "Grating constant",
+        "option_b": "Opacity",
+        "option_c": "Focal length",
+        "option_d": "Optical activity",
+        "correct_option": "a"
+    },
+    {
+        "question": " If (a + b) &lt; nλ, then",
+        "qid": 2,
+        "option_a": "nth order spectrum will be absent.",
+        "option_b": "n-1 order spectrum will be absent.",
+        "option_c": "n-2 order spectrum will be absent.",
+        "option_d": "no diffraction pattern will be visible",
+        "correct_option": "a"
+    },
+    {
+        "question": "What is grating Element?",
+        "qid": 3,
+        "option_a": "Grating element is the sum of slit width and opaque spacing",
+        "option_b": "The distance between two consecutive slits",
+        "option_c": "This is element by which grating is made",
+        "option_d": "Grating element is a device that we use in experiment for the determination of wavelength.",
+        "correct_option": "b"
+    },
+    {
+    
+        "question": "In the diffraction grating experiment, what do the bright spots in the generated pattern represent?",
+        "qid": 4,
+        "option_a": "Constructive interference of diffracted beams",
+        "option_b": "Destructive interference of diffracted beams",
+        "option_c": "Absence of interference",
+        "option_d": "Scattering of light",
+        "correct_option": "a"
+    },
+    { 
+        "question": "A grating is a",
+        "qid": 5,
+        "option_a": "plane glass plate on which a large number of opaque rulings are drawn at equidistance with a diamond head.",
+        "option_b": "a plano-convex lens producing interference pattern",
+        "option_c": "a plane glass plate used for polarizing the light",
+        "option_d": "source of monochromatic light",
+        "correct_option": "a"
+    }
+]
